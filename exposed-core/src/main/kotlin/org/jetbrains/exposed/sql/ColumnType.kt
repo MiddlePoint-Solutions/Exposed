@@ -100,7 +100,7 @@ abstract class ColumnType(override var nullable: Boolean = false) : IColumnType 
 /**
  * Auto-increment column type.
  */
-open class AutoIncColumnType(
+class AutoIncColumnType(
     /** Returns the base column type of this auto-increment column. */
     val delegate: ColumnType,
     private val _autoincSeq: String?,

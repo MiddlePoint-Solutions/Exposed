@@ -1045,7 +1045,7 @@ open class Table(name: String = "") : ColumnSet(), DdlAware {
     private fun <T> Column<T>.cloneWithAutoInc(idSeqName: String?): Column<T> = when (columnType) {
         is AutoIncColumnType -> this
         is ColumnType -> {
-            this.withColumnType(AutoIncColumnType(columnType, idSeqName, "${tableName}_${name}_seq"))
+            this.withColumnType(AutoIncColumnType(columnType as ColumnType, idSeqName, "${tableName}_${name}_seq"))
         }
         else -> error("Unsupported column type for auto-increment $columnType")
     }
